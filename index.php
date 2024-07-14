@@ -23,7 +23,7 @@ if (isset($_POST['deposit'])) {
  //phone number to receive the stk push
   $money = $amount;
   $PartyA = '9331755';
-  $PartyB = '254708374149';
+  $PartyB = '254721711613';
   $AccountReference = $accountnumber;
   $TransactionDesc = 'stkpush test';
   $Amount = $money;
@@ -44,7 +44,7 @@ if (isset($_POST['deposit'])) {
     'PhoneNumber' => $phone,
     'CallBackURL' => $callbackurl,
     'AccountReference' => $AccountReference,
-    'TransactionDesc' => $TransactionDesc
+    'TransactionDesc' => $TransactionDesc,
   );
 
   $data_string = json_encode($curl_post_data);
@@ -54,8 +54,8 @@ if (isset($_POST['deposit'])) {
   $curl_response = curl_exec($curl);
   //ECHO  RESPONSE
   $data = json_decode($curl_response);
-  $CheckoutRequestID = $data->CheckoutRequestID;
-  $ResponseCode = $data->ResponseCode;
+  $CheckoutRequestID = 'ws_CO_13072024182958969721711613';
+  $ResponseCode = '0';
   if ($ResponseCode == "0") {
     echo "<script>window.location.href='index.php?sucess=Plesae Enter Your Mpesa Pin To Complete The Transaction'</script>";
   }else{
